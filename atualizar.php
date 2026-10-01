@@ -9,13 +9,14 @@
     $status = $_POST["status"];
 
     $sql = "UPDATE ordens_servico
-        SET cliente = ?,
-            equipamento = ?,
-            problema = ?,
-            data_entrada = ?,
-            status = ?,
-        WHERE id = ?";
-    $stmt = $conexao->prepare($sql);
+            SET cliente = ?,
+                equipamento = ?,
+                problema = ?,
+                data_entrada = ?,
+                status = ?
+            WHERE id = ?";
+
+    $stmt = $conexao -> prepare($sql);
 
     $stmt -> bind_param(
         "sssssi",
@@ -27,10 +28,10 @@
         $id
     );
 
-    if ($stmt->executer()){
+    if ($stmt->execute()){
         header("Location: index.php");
         exit;
     } else {
-        echo "Erro ao atualizar";
-    }
+        echo "Erro ao atualizar.";
+    }    
 ?>

@@ -4,8 +4,8 @@
     $id = intval($_GET["id"]);
 
     $sql = "SELECT * FROM ordens_servico WHERE
-        id = ?";
-
+            id = ?";
+    
     $stmt = $conexao->prepare($sql);
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -15,7 +15,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,40 +27,36 @@
         <h1>Editar Ordem de Serviço</h1>
         <form action="atualizar.php" method="POST">
             <input 
-            type="hidden"
-            name="id"
-            values="<?php echo $ordem["id"];?>"
+                type="hidden"
+                name="id"
+                value="<?php echo $ordem["id"];?>"
             >
-
             <label>Cliente</label>
-            <input 
-            type="text"
-            name="cliente"
-            values="<?php echo htmlspecialchars($ordem["cliente"]);?>"
-            required
+            <input
+                type="text"
+                name="cliente"
+                value="<?php echo htmlspecialchars($ordem["cliente"]);?>"
+                required
             >
-
             <label>Equipamento</label>
-            <input 
-            type="text"
-            name="equipamento"
-            values="<?php echo htmlspecialchars($ordem["equipamento"]);?>"
-            required
+            <input
+                type="text"
+                name="equipamento"
+                value="<?php echo htmlspecialchars($ordem["equipamento"]);?>"
+                required
             >
-
             <label>Problema</label>
             <textarea name="problema" required>
-                <?php echo htmlspecialchars($ordem["problema"]);?>
+                <?php echo htmlspecialchars($ordem["problema"]);?>            
             </textarea>
 
-            <label>Data de Entrada</label>
-            <input 
-            type="date"
-            name="data_entrada"
-            values="<?php echo $ordem["data_entrada"]; ?>"
-            required
+            <label>Data de entrada</label>
+            <input
+                type="date"
+                name="data_entrada"
+                value="<?php echo $ordem["data_entrada"]; ?>"
+                required
             >
-
             <label>Status</label>
             <select name="status">
                 <option value="Recebido">Recebido</option>
