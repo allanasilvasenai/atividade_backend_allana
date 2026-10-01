@@ -39,7 +39,7 @@
                     <td><?php echo $ordem["status"]; ?></td>
 
                     <td>
-                        <a href="editar.php ? id=<?php echo $ordem["id"];?>">editar</a>
+                        <a href="editar.php ? id=<?php echo $ordem["id"];?>" class="botao">editar</a>
                     </td>
                 </tr>
            <?php } ?>
